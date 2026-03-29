@@ -1,0 +1,148 @@
+@import 'tailwindcss';
+@import 'tw-animate-css';
+
+:root {
+  --background: oklch(1 0 0); /* Pure White */
+  --foreground: oklch(0 0 0); /* Pure Black */
+  
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0 0 0);
+  
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0 0 0);
+  
+  --primary: oklch(0.6 0.22 30); /* Swiss Red */
+  --primary-foreground: oklch(1 0 0);
+  
+  --secondary: oklch(0.95 0 0); /* Light Gray */
+  --secondary-foreground: oklch(0 0 0);
+  
+  --muted: oklch(0.95 0 0);
+  --muted-foreground: oklch(0.4 0 0); /* Dark Gray */
+  
+  --accent: oklch(0.95 0 0);
+  --accent-foreground: oklch(0 0 0);
+  
+  --destructive: oklch(0.6 0.22 30);
+  --destructive-foreground: oklch(1 0 0);
+  
+  --border: oklch(0 0 0); /* Strict black borders */
+  --input: oklch(0 0 0);
+  --ring: oklch(0.6 0.22 30);
+  
+  --radius: 0rem; /* Strict sharp corners */
+}
+
+.dark {
+  /* Enforcing light mode as requested, but keeping these as high contrast inverted simply in case */
+  --background: oklch(0 0 0);
+  --foreground: oklch(1 0 0);
+  --card: oklch(0 0 0);
+  --card-foreground: oklch(1 0 0);
+  --popover: oklch(0 0 0);
+  --popover-foreground: oklch(1 0 0);
+  --primary: oklch(0.6 0.22 30); 
+  --primary-foreground: oklch(1 0 0);
+  --secondary: oklch(0.1 0 0);
+  --secondary-foreground: oklch(1 0 0);
+  --muted: oklch(0.1 0 0);
+  --muted-foreground: oklch(0.6 0 0);
+  --accent: oklch(0.1 0 0);
+  --accent-foreground: oklch(1 0 0);
+  --destructive: oklch(0.6 0.22 30);
+  --destructive-foreground: oklch(1 0 0);
+  --border: oklch(1 0 0);
+  --input: oklch(1 0 0);
+  --ring: oklch(0.6 0.22 30);
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+
+  --radius-sm: var(--radius);
+  --radius-md: var(--radius);
+  --radius-lg: var(--radius);
+  --radius-xl: var(--radius);
+  --radius-2xl: var(--radius);
+  
+  --font-sans: 'Inter', system-ui, sans-serif;
+  --font-mono: 'Menlo', 'Courier New', monospace;
+}
+
+html, body {
+  scrollbar-gutter: stable;
+  scroll-behavior: smooth;
+  font-family: var(--font-sans);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring border-solid;
+    box-sizing: border-box;
+  }
+  body {
+    @apply bg-background text-foreground shrink-0;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-bold tracking-tight text-foreground;
+  }
+  h1 { @apply text-6xl md:text-8xl lg:text-[10rem] leading-[0.85] tracking-tighter; }
+  h2 { @apply text-4xl md:text-5xl leading-tight; }
+  h3 { @apply text-2xl md:text-3xl leading-snug; }
+}
+
+@layer utilities {
+  .smooth-container {
+    @apply max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8 xl:px-12 w-full;
+  }
+  
+  .swiss-border-b {
+    @apply border-b border-black dark:border-white;
+  }
+  
+  .swiss-border-r {
+    @apply border-r border-black dark:border-white;
+  }
+
+  .swiss-border-t {
+    @apply border-t border-black dark:border-white;
+  }
+
+  .data-label {
+    @apply text-xs uppercase tracking-widest font-bold text-muted-foreground;
+  }
+  
+  .data-value {
+    @apply font-medium text-foreground text-xl;
+  }
+
+  /* Keep custom scrollbar minimal */
+  .custom-scrollbar::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  .custom-scrollbar::-webkit-scrollbar-track {
+    @apply bg-background;
+  }
+  .custom-scrollbar::-webkit-scrollbar-thumb {
+    @apply bg-black dark:bg-white;
+  }
+}

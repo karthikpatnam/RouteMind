@@ -1,0 +1,17 @@
+fastapi
+uvicorn[standard]
+sqlalchemy
+asyncpg
+pydantic
+pydantic-settings
+python-dotenv
+google-genai>=0.2.0
+requests
+httpx
+beautifulsoup4
+supabase
+vaderSentiment
+langchain>=0.3.0
+langchain-google-genai>=2.0.0
+langgraph>=0.4.0
+networkx
